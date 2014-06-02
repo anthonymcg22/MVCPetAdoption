@@ -1,0 +1,20 @@
+﻿@model List<PetAdoption.DataModel.Pet>
+
+<style>
+    body {
+        background: #0094ff;
+    }
+</style>
+<form method="post">
+    <input style="margin: 20px;" type="text" placeholder="Search for a pet" name="Search" />
+    <input type="submit" value="Submit Search" />
+</form>
+@foreach (var pet in Model)
+{
+    <div style="height: 450px; text-align: center; border-radius: 12px; display: inline-block; width: 22%; margin: 8px; background-color: tan;">
+            <img style ="max-height: 230px; width: 100%; border-radius: 12px;" src="@pet.Image" />
+            <h3><strong>@pet.Name</strong></h3>
+            <p>@pet.Description</p>
+            <a href="/Home/AdoptedPets/@pet.Id" style="margin: 15px; background-color: #ffffff;" class="btn btn-lg">Adopt Me</a>
+    </div>
+}

@@ -1,0 +1,36 @@
+﻿@model PetAdoption.DataModel.Pet
+
+@{
+    ViewBag.Title = "AddPet";
+}
+
+
+<style>
+    body {
+        background: #0094ff;
+    }
+</style>
+
+<h2 style="text-align: center;">Add your Pet</h2> <br/> <br/>
+<form method="post">
+    @Html.HiddenFor(x => x.Id)
+    @Html.HiddenFor(x => x.ShelterId)
+
+    <select style="float: left;" name="category">
+        <option value="@PetAdoption.DataModel.type.cat">Cat</option>
+        <option value="@PetAdoption.DataModel.type.dog">Dog</option>
+        <option value="@PetAdoption.DataModel.type.bird">Bird</option>
+        <option value="@PetAdoption.DataModel.type.ferret">Ferret</option>
+        <option value="@PetAdoption.DataModel.type.rabbit">Rabbit</option>
+        <option value="@PetAdoption.DataModel.type.turtle">Turtle</option>
+        <option value="@PetAdoption.DataModel.type.hamster">Hamster</option>
+        <option value="@PetAdoption.DataModel.type.fish">Fish</option>
+    </select> <br/> <br/>
+    <div style="width: 310px;"><span style="float: left;">Name</span> <span style="float: right;">@Html.TextBoxFor(x => x.Name) </span></div>
+    <br /><br/>
+    <div style="width: 310px;"><span style="float: left;">Image Url</span> <span style="float: right;">@Html.TextBoxFor(x => x.Image)</span></div>
+    <br /><br/>
+    <div style="width: 310px;"><span style="float: left;">Description</span> <span style="float: right;">@Html.TextBoxFor(x => x.Description) </span></div>
+<br/><br/>
+    <input style=" margin-bottom: 100px; float: left;" type="submit" value="Add Pet"/>
+</form>

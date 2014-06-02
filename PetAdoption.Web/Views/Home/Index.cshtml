@@ -1,0 +1,19 @@
+﻿@model List<PetAdoption.DataModel.Shelter>
+@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    body {
+        background: #0094ff;
+    }
+</style>
+
+@foreach (var shelter in Model)
+{
+    <div class="clearfix" style="margin: 40px 25px;">
+        <img style=" border-radius: 8px; width: 210px; margin: 20px; float: left" src="@shelter.Image" />
+        <h2 style="margin-top: 35px;">@shelter.Location</h2> <br/>
+        <a class="btn btn-success" href="/Home/ShelterDetails/@shelter.Id"><em><strong>Visit @shelter.Name</strong></em></a>
+    </div>
+}
+

@@ -1,0 +1,22 @@
+﻿@model PetAdoption.DataModel.Shelter
+
+@{
+    ViewBag.Title = "AddShelter";
+}
+<style>
+    body {
+        background: #0094ff;
+    }
+    
+</style>
+<h2 style="text-align: center;">Add Your Shelter</h2> <br/>
+<form method="post">
+    @Html.HiddenFor(x => x.Id)
+
+    <div style="width: 300px;"><span style="float: left;">Name:</span><span style="float: right;">@Html.TextBoxFor(x => x.Name) </span></div>
+    <br/> <br/>
+    <div style="width: 300px;"><span style="float: left;">Location:</span><span style="float: right;">@Html.TextBoxFor(x => x.Location) </span></div> <br/> <br/>
+    <div style="width: 300px;"><span style="float: left;">Image Url:</span><span style="float: right;">@Html.TextBoxFor(x => x.Image)  </span></div> <br/> <br/>
+
+    <input type="submit" value="Add Shelter" />
+</form>

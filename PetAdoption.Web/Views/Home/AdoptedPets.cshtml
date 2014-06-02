@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "";
+}
+
+
+<table class="table table-responsive">
+
+    @foreach (var pet in Model)
+    {
+        <tr style="background-color: tan;">
+            <td style="width: 45%;"><h2 style="margin: 34px;">You have just adopted @pet.Name</h2></td>
+            <td style="width: 45%;"><img style="border-radius: 10px; width: 220px;" src="@pet.Image" /></td>
+            
+        </tr>
+    }
+</table>

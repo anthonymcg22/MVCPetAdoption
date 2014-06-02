@@ -1,0 +1,28 @@
+﻿@model PetAdoption.DataModel.Shelter
+
+<h2 style="text-align: center; margin: 30px;">Welcome to <strong>@Model.Name</strong></h2>
+<a style="background-color: tan;" class="btn btn-lg" href="/Home/AddPet/@Model.Id">Bring in a Pet</a> <br/>
+<style>
+    body {
+        background: #0094ff;
+    }
+</style>
+
+
+
+
+@foreach (var pet in Model.Pets)
+{
+    <div style="border-radius: 10px; display: inline-block; text-align: center; width: 29%; margin: 15px; background-color: tan;">
+ 
+            <img style="border-radius: 10px; width: 230px;" src="@pet.Image" />
+
+ 
+            <h3 style="margin: 15px;"><strong>@pet.Name</strong></h3>
+            <p style="margin: 15px;">@pet.Description</p>
+            <a href="/Home/AdoptedPets/@pet.Id" style="margin: 15px; background-color: #ffffff" class="btn btn-lg">Adopt Me</a>
+    </div>
+}
+<br/><br/>
+<a class="btn btn-danger" href="/Home/DeleteShelter/@Model.Id">Remove Shelter From List</a>
+
