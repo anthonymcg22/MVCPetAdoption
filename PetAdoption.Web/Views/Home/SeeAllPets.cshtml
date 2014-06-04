@@ -11,10 +11,15 @@
 </form>
 @foreach (var pet in Model)
 {
-    <div style="height: 450px; text-align: center; border-radius: 12px; display: inline-block; width: 22%; margin: 8px; background-color: tan;">
-            <img style ="max-height: 230px; width: 100%; border-radius: 12px;" src="@pet.Image" />
+    <div style="height: 450px;  border-radius: 12px; display: inline-block; width: 22%; margin: 8px; background-color: tan;">
+        <img style="height: 230px; width: 100%; border-radius: 12px;" src="@pet.Image" />
+        <div style="text-align: center; height: 125px;">
             <h3><strong>@pet.Name</strong></h3>
             <p>@pet.Description</p>
-            <a href="/Home/AdoptedPets/@pet.Id" style="margin: 15px; background-color: #ffffff;" class="btn btn-lg">Adopt Me</a>
+        </div>
+        <div style="text-align: center;">
+            <a href="/Home/AdoptedPets/@pet.Id" style=" text-align: center; background-color: #ffffff;" class="btn btn-lg">Adopt Me</a>
+        </div>
     </div>
+
 }
