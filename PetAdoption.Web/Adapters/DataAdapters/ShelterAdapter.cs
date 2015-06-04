@@ -89,49 +89,10 @@ namespace PetAdoption.Web.Adapters.DataAdapters
             List<Pet> Pets = new List<Pet>();
             using (ApplicationDbContext db = new ApplicationDbContext())
             {
-                if (search != "")
+                if (!string.IsNullOrWhiteSpace(search))
                 {
-                    if (type.dog.ToString().Contains(search.ToLower())) {
-                        Pets = db.Pets.Where(x => x.type == type.dog || x.Name.ToLower().Contains(search.ToLower())
-                            || x.Description.Contains(search.ToLower())).ToList(); }
-                    else if (type.cat.ToString().Contains(search.ToLower())) {
-                        Pets = db.Pets.Where(x => x.type == type.cat || x.Name.ToLower().Contains(search.ToLower())
-                            || x.Description.Contains(search.ToLower())).ToList(); }
-                    else if (type.bird.ToString().Contains(search.ToLower()))
-                    {
-                        Pets = db.Pets.Where(x => x.type == type.bird || x.Name.ToLower().Contains(search.ToLower())
-                            || x.Description.Contains(search.ToLower())).ToList();
-                    }
-                    else if (type.ferret.ToString().Contains(search.ToLower()))
-                    {
-                        Pets = db.Pets.Where(x => x.type == type.ferret || x.Name.ToLower().Contains(search.ToLower())
-                            || x.Description.Contains(search.ToLower())).ToList();
-                    }
-                    else if (type.fish.ToString().Contains(search.ToLower()))
-                    {
-                        Pets = db.Pets.Where(x => x.type == type.fish || x.Name.ToLower().Contains(search.ToLower())
-                            || x.Description.Contains(search.ToLower())).ToList();
-                    }
-                    else if (type.hamster.ToString().Contains(search.ToLower()))
-                    {
-                        Pets = db.Pets.Where(x => x.type == type.hamster || x.Name.ToLower().Contains(search.ToLower())
-                            || x.Description.Contains(search.ToLower())).ToList();
-                    }
-                    else if (type.rabbit.ToString().Contains(search.ToLower()))
-                    {
-                        Pets = db.Pets.Where(x => x.type == type.rabbit || x.Name.ToLower().Contains(search.ToLower())
-                            || x.Description.Contains(search.ToLower())).ToList();
-                    }
-                    else if (type.turtle.ToString().Contains(search.ToLower()))
-                    {
-                        Pets = db.Pets.Where(x => x.type == type.turtle || x.Name.ToLower().Contains(search.ToLower())
-                            || x.Description.Contains(search.ToLower())).ToList();
-                    }
-                    else
-                    {
-                        Pets = db.Pets.Where(x => x.Name.ToLower().Contains(search.ToLower())
-                            || x.Description.Contains(search.ToLower())).ToList();
-                    }
+                    string s = search.ToLower();
+                    Pets = db.Pets.Where(p => p.type.ToString().ToLower().Contains(s) || p.Name.ToLower().Contains(s) || p.Description.ToLower().Contains(s)).ToList();
                 }
                 else
                 {
